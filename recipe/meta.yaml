@@ -1,29 +1,27 @@
 {% set name = "saspy" %}
-{% set version = "3.7.2" %}
-{% set hash_val = "b459ac7a82a2e8b71df6c6f16bf6703f2bb3467e63589423242bead64457b181" %}
+{% set version = "5.102.1" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ hash_val }}
+  sha256: 2e9bfaeb39ae025df1d99dcef1ae2750ea4d5b6b01e2de467fec3c548870d42c
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
   host:
-    - python >=3
+    - python
     - setuptools
     - wheel
     - pip
   run:
-    - python >=3
+    - python
+    # Keep pandas at runtime and don't break the user experience.
     - pandas
 
 test:
@@ -36,7 +34,7 @@ test:
 
 about:
   home: https://github.com/sassoftware/saspy
-  license: Apache 2.0
+  license: Apache-2.0 and LicenseRef-SASLicenseAgreement
   license_family: Apache
   license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
   summary: A Python interface module to the SAS System
