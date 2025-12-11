@@ -1,13 +1,13 @@
 {% set name = "saspy" %}
-{% set version = "5.102.1" %}
+{% set version = "5.104.0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2e9bfaeb39ae025df1d99dcef1ae2750ea4d5b6b01e2de467fec3c548870d42c
+  url: https://github.com/sassoftware/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: dde957085a18f582ed108d662b8524e2b374a0bd451822c726ab700cd388a787
 
 build:
   number: 0
@@ -24,19 +24,20 @@ requirements:
     # Keep pandas at runtime and don't break the user experience.
     - pandas
 
+# Tests need the SAS process attached. Unable to run tests.
 test:
   imports:
     - saspy
-  requires:
-    - pip
   commands:
     - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/sassoftware/saspy
-  license: Apache-2.0 and LicenseRef-SASLicenseAgreement
+  license: Apache-2.0
   license_family: Apache
-  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  license_file: LICENSE.md
   summary: A Python interface module to the SAS System
   description: |
       This module allows a python process to connect to SAS 9.4 and run SAS
