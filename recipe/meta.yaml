@@ -1,5 +1,5 @@
 {% set name = "saspy" %}
-{% set version = "5.104.0" %}
+{% set version = "5.108.6" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/sassoftware/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: dde957085a18f582ed108d662b8524e2b374a0bd451822c726ab700cd388a787
+  sha256: b882df82f4e0fc8a812ca9685f00e0bef465e2f126d19e55a6a35533d867c573
 
 build:
   number: 0
