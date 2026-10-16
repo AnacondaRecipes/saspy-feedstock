@@ -1,7 +1,6 @@
 {% set name = "saspy" %}
 {% set version = "5.109.3" %}
 
-# Tests need the SAS process attached. Unable to run tests.
 package:
   name: {{ name }}
   version: {{ version }}
@@ -25,6 +24,7 @@ requirements:
     # Keep pandas at runtime and don't break the user experience.
     - pandas
 
+# Tests need the SAS process attached. Unable to run tests.
 test:
   imports:
     - saspy
