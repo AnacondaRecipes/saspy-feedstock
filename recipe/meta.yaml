@@ -1,5 +1,5 @@
 {% set name = "saspy" %}
-{% set version = "5.109.3" %}
+{% set version = "5.109.4" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/sassoftware/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 5bed18adc8450b7e58b70bc12d99b72faea183f0fbc3805770ef7effb4d68287
+  sha256: f13c6278e3e88d14a0623ddfb58806de3e2c63d0a43ebdb905aa76cf0cb59233
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     # Keep pandas at runtime and don't break the user experience.
     - pandas
 
-# Tests need the SAS process attached. Unable to run tests.
+# Upstream tests require a live SAS 9.4 session; the config-only tests are not installed with the package.
 test:
   imports:
     - saspy
