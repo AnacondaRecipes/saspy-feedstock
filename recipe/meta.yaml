@@ -1,13 +1,14 @@
 {% set name = "saspy" %}
-{% set version = "5.109.3" %}
+{% set version = "5.110.0" %}
 
+# Tests need the SAS process attached. Unable to run tests.
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://github.com/sassoftware/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 5bed18adc8450b7e58b70bc12d99b72faea183f0fbc3805770ef7effb4d68287
+  sha256: c0102ecd285d17fb47bad0a056b802d5f46bc7e5c19bc8079ae3d7e6b8b47336
 
 build:
   number: 0
@@ -24,7 +25,6 @@ requirements:
     # Keep pandas at runtime and don't break the user experience.
     - pandas
 
-# Tests need the SAS process attached. Unable to run tests.
 test:
   imports:
     - saspy
